@@ -1,6 +1,43 @@
 #include "variable.h"
 #include <stdio.h>
 
+void datatypes() {
+  // char types
+  char myChar;
+  unsigned char myUnsignedChar;
+  signed char mySignedChar;
+
+  // short types
+  short myShort;
+  unsigned short myUnsignedShort;
+
+  // int types
+  int myInt;
+  unsigned int myUnsignedInt;
+
+  // long types
+  long myLong;
+  unsigned long myUnsignedLong;
+
+  // float types
+  float myFloat;
+  double myDouble;
+  long double myLongDouble;
+
+  printf("[char] size: %lu\n", sizeof(myChar));
+  printf("[unsigned char] size: %lu\n", sizeof(myUnsignedChar));
+  printf("[signed char] size: %lu\n", sizeof(mySignedChar));
+  printf("[short] size: %lu\n", sizeof(myShort));
+  printf("[unsigned short] size: %lu\n", sizeof(myUnsignedShort));
+  printf("[int] size: %lu\n", sizeof(myInt));
+  printf("[unsigned int] size: %lu\n", sizeof(myUnsignedInt));
+  printf("[long] size: %lu\n", sizeof(myLong));
+  printf("[unsigned long] size: %lu\n", sizeof(myUnsignedLong));
+  printf("[float] size: %lu\n", sizeof(myFloat));
+  printf("[double] size: %lu\n", sizeof(myDouble));
+  printf("[long double] size: %lu\n", sizeof(myLongDouble));
+}
+
 void addition() {
   int num1 = 0;
   int num2 = 0;
