@@ -12,5 +12,7 @@ int main() {
   /*compound_interest();*/
   /*switch_gradecounter();*/
   /*for_at();*/
-  math_functions();
+  /*math_functions();*/
+  /*random_die();*/
+  random_frequency();
 }
