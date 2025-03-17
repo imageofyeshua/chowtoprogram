@@ -1,3 +1,4 @@
+#include "control.h"
 #include "variable.h"
 #include <stdio.h>
 
@@ -6,5 +7,8 @@ int main() {
   printf("\n\n### Hello, Daniel Park ###\n\n");
   /*addition();*/
   /*average();*/
-  datatypes();
+  /*datatypes();*/
+  /*compound_interest();*/
+  /*switch_gradecounter();*/
+  for_at();
 }
