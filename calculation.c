@@ -5,10 +5,100 @@
 #include <string.h>
 #include <time.h>
 
+enum GameStatus { CONTINUE, GAME_WON, GAME_LOST };
+enum RoundStatus { DRAW, WON, LOST };
+enum Shape { ROCK, PAPER, SCISSORS };
+
+enum Shape convertIntToShape(int);
+enum Shape computerPlayRandomShape(void);
+enum RoundStatus getRoundStatus(enum Shape, enum Shape);
+char *getStringFromShape(enum Shape);
+
 void rock_paper_scissors() {
-  enum GameStatus { CONTINUE, GAME_WON, GAME_LOST };
-  enum RoundStatus { DRAW, WON, LOST };
-  enum Shape { ROCK, PAPER, SCISSORS };
+  srand(time(NULL));
+  enum GameStatus gameStatus = CONTINUE;
+  /*printf("Game Status = %d\n", gameStatue);*/
+
+  int bestofN = 3; // best of 3 game
+  int winThreshold = (bestofN / 2) + 1;
+
+  int playerWinCount = 0;
+  int computerWinCount = 0;
+
+  int roundNum = 0;
+
+  while (CONTINUE == gameStatus) {
+    printf("=================\nRound %d\n=================\n", roundNum++);
+    printf("Enter 0 (Rock), or 1 (Paper), or 2 (Scissors): ");
+
+    int playerShapeInt = -1;
+    scanf(" %d", &playerShapeInt);
+
+    enum Shape playerShape = convertIntToShape(playerShapeInt);
+    enum Shape computerShape = computerPlayRandomShape();
+
+    enum RoundStatus roundStatus = getRoundStatus(playerShape, computerShape);
+
+    switch (roundStatus) {
+    case DRAW:
+      printf("It's a DRAW!\n");
+      break;
+    case WON:
+      printf("Player WON!\n");
+      if (++playerWinCount == winThreshold) {
+        gameStatus = GAME_WON;
+      }
+      break;
+    case LOST:
+      printf("Player LOST!\n");
+      if (++computerWinCount == winThreshold) {
+        gameStatus = GAME_LOST;
+      }
+      break;
+    }
+  }
+
+  switch (gameStatus) {
+  case GAME_WON:
+    printf("**Best of %d game is WON by player!**\n", bestofN);
+    break;
+  case GAME_LOST:
+    printf("**Best of %d game is WON by computer!**\n", bestofN);
+    break;
+  case CONTINUE:
+  default:
+    printf("**Error! Should not reach here!**");
+  }
+}
+
+enum Shape convertIntToShape(int shapeValue) { return (enum Shape)shapeValue; }
+enum Shape computerPlayRandomShape(void) {
+  enum Shape randomShape = convertIntToShape(rand() % 3);
+  printf("Computer played %s\n", getStringFromShape(randomShape));
+  return randomShape;
+}
+enum RoundStatus getRoundStatus(enum Shape playerShape,
+                                enum Shape computerShape) {
+  if (playerShape == computerShape) {
+    return DRAW;
+  } else if ((playerShape == ROCK && computerShape == SCISSORS) ||
+             (playerShape == SCISSORS && computerShape == PAPER) ||
+             (playerShape == PAPER && computerShape == ROCK)) {
+    return WON;
+  } else {
+    return LOST;
+  }
+}
+char *getStringFromShape(enum Shape shape) {
+  switch (shape) {
+  case ROCK:
+    return "ROCK";
+  case PAPER:
+    return "PAPER";
+  case SCISSORS:
+    return "SCISSORS";
+  }
+  return "";
 }
 
 void random_frequency() {

@@ -14,5 +14,6 @@ int main() {
   /*for_at();*/
   /*math_functions();*/
   /*random_die();*/
-  random_frequency();
+  /*random_frequency();*/
+  rock_paper_scissors();
 }
