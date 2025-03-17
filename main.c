@@ -1,3 +1,4 @@
+#include "calculation.h"
 #include "control.h"
 #include "variable.h"
 #include <stdio.h>
@@ -10,5 +11,6 @@ int main() {
   /*datatypes();*/
   /*compound_interest();*/
   /*switch_gradecounter();*/
-  for_at();
+  /*for_at();*/
+  math_functions();
 }
