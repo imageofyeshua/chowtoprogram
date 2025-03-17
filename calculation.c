@@ -2,7 +2,14 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
+
+void rock_paper_scissors() {
+  enum GameStatus { CONTINUE, GAME_WON, GAME_LOST };
+  enum RoundStatus { DRAW, WON, LOST };
+  enum Shape { ROCK, PAPER, SCISSORS };
+}
 
 void random_frequency() {
   int frequency1 = 0;
