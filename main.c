@@ -1,5 +1,6 @@
 #include "calculation.h"
 #include "control.h"
+#include "scope.h"
 #include "variable.h"
 #include <stdio.h>
 
@@ -15,5 +16,6 @@ int main() {
   /*math_functions();*/
   /*random_die();*/
   /*random_frequency();*/
-  rock_paper_scissors();
+  /*rock_paper_scissors();*/
+  scope();
 }
